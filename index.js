@@ -10,23 +10,8 @@ import redis from "redis";
 dotenv.config();
 
 const app = express();
-app.use(cors());
-const PORT = process.env.PORT || 5002;
-
-let redisClient;
-(async () => {
-  redisClient = redis.createClient({
-    password: process.env.REDIS_PW,
-    socket: {
-      host: process.env.REDIS_HOST,
-      port: process.env.REDIS_PORT,
-    },
-  });
-
-  redisClient.on("error", (error) => console.error(`Error : ${error}`));
-
-  await redisClient.connect();
-})();
+app.use(cors())
+const PORT = process.env.PORT || 5002
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
