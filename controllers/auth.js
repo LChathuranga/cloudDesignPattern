@@ -27,7 +27,7 @@ export const register = async (req, res) => {
 
     if (isUserExit) {
         res.status(400).json({
-            message: "User Already Exit"
+            message: "Email Already Exit"
         });
     }
 
